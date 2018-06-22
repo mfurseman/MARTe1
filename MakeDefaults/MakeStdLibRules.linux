@@ -34,6 +34,10 @@ linux/.force_mkdir:
 	  $(shell mkdir -p linux > /dev/null)
 	  touch $@
 
+temp/.force_mkdir: 
+	  $(shell mkdir -p temp > /dev/null)
+	  touch $@
+
 
 linux/%.o : %.cpp $(DEPDIR)/%.d linux/.force_mkdir $(DEPDIR)/.force_mkdir
 	$(COMPILER) -c $(OPTIM) $(DEPFLAGS) $(CFLAGS) $(CPPFLAGS) $(CFLAGSPEC) $(DEBUG)  $*.cpp -o linux/$*.o
@@ -57,11 +61,11 @@ linux/%.so : linux/%.o $(OBJS)
 	rm  linux/lib$*.so
 	ln -fns $*.so linux/lib$*.so
 
-%.ifo :  %.h
+%.ifo :  %.h temp/.force_mkdir
 	$(COMPILER) -E -I$(CINTSYSDIR)/src  -I$(CINTSYSDIR) $(CFLAGS) $(DEBUG) $(OPTIM)  $*.h > temp/temp.pp
 	cint  -i temp/temp.pp $(MAKEDEFAULTDIR)/MakeIfo.cxx $* > $*.ifo
 
-%.sinfo.cpp :  %.h
+%.sinfo.cpp :  %.h temp/.force_mkdir
 	$(COMPILER) -D_CINT -E -I$(CINTSYSDIR)/src  -I$(CINTSYSDIR) $(CFLAGS) $(DEBUG) $(OPTIM)  $*.h > temp/temp.pp
 	cint   -i  $(MAKEDEFAULTDIR)/MakeIfo.cxx $* > $*.sinfo.cpp
 
