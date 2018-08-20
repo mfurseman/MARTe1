@@ -1,4 +1,4 @@
 *.err
 *depends*.*
-*/linux/*
-*/.d/*
+**/linux/*
+**/.d/*
