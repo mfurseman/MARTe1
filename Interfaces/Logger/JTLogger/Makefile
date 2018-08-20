@@ -25,8 +25,7 @@
 
 CLASSPATH = .
 
-#JFLAGS = -classpath $(CLASSPATH) -target 1.7
-JFLAGS = -classpath $(CLASSPATH)
+JFLAGS = -classpath $(CLASSPATH) --release 7
 JCFLAGS =
 JRFLAGS =
 BUILD_DIR = build

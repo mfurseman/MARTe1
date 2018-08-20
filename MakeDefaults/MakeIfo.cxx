@@ -29,7 +29,7 @@
 #include <setjmp.h>
 #include <api.h>
 #include <ertti.h>
-#include <winsock.h>
+//#include <winsock.h>
 #include <math.h>
 
 struct uint64{
