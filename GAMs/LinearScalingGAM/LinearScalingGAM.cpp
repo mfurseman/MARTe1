@@ -22,7 +22,7 @@
  *
 **/
 
-#include "MathGAM.h"
+#include "LinearScalingGAM.h"
 #include "CDBExtended.h"
 #include "DDBInputInterface.h"
 #include "DDBOutputInterface.h"

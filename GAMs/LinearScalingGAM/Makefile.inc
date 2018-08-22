@@ -38,7 +38,7 @@ CFLAGS+= -I../../BaseLib2/Level6
 CFLAGS+= -I../../Interfaces/ConfigurationLibrary
 
 all: $(OBJS) \
-	$(TARGET)/MathGAM$(GAMEXT)
+	$(TARGET)/LinearScalingGAM$(GAMEXT)
 
 #include depends.$(TARGET)
 
