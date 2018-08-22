@@ -22,43 +22,9 @@
 # $Id$
 #
 #############################################################
-#Set the list of modules to compile
-#GAMs
-DataCollectionGAM
-DelayGAM
-DigitalFilterGAM
-#EPICSGAM
-ExpEval
-MathGAM
-PIDGAM
-PlottingGAM
-StatisticGAM
-StorageGAM
-WaterTank
-WaveformGenerator2009
-WebStatisticGAM
+TARGET=linux
 
-#IOGAMs
-FileReaderDriver
-GenericTimerDriver
-LinuxATMDriver
-LinuxTimer
-SharedMemoryDriver
-SimulationTimerDriver
-SrTrATCADriver
-StreamingDriver
-#StreamingDriverSDN
-SynchronizingDriver
-UDPDriver
+include Makefile.inc
 
-#Interfaces
-ConfigurationLibrary
-CFGUploader
-FlotPlot
-MATLABHandler
-SignalHandler
-JTLogger
-#EPICSLib
-#RelayLogger
-MessageTriggeringTimeService
+LIBRARIES   += -L../../BaseLib2/$(TARGET) -lBaseLib2 -L../../Interfaces/ConfigurationLibrary/linux/ -lConfigurationLibrary
 

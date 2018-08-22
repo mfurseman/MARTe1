@@ -22,43 +22,25 @@
 # $Id$
 #
 #############################################################
-#Set the list of modules to compile
-#GAMs
-DataCollectionGAM
-DelayGAM
-DigitalFilterGAM
-#EPICSGAM
-ExpEval
-MathGAM
-PIDGAM
-PlottingGAM
-StatisticGAM
-StorageGAM
-WaterTank
-WaveformGenerator2009
-WebStatisticGAM
 
-#IOGAMs
-FileReaderDriver
-GenericTimerDriver
-LinuxATMDriver
-LinuxTimer
-SharedMemoryDriver
-SimulationTimerDriver
-SrTrATCADriver
-StreamingDriver
-#StreamingDriverSDN
-SynchronizingDriver
-UDPDriver
+MAKEDEFAULTDIR=../../MakeDefaults
 
-#Interfaces
-ConfigurationLibrary
-CFGUploader
-FlotPlot
-MATLABHandler
-SignalHandler
-JTLogger
-#EPICSLib
-#RelayLogger
-MessageTriggeringTimeService
+include $(MAKEDEFAULTDIR)/MakeStdLibDefs.$(TARGET)
+
+CFLAGS+= -I.
+CFLAGS+= -I../../BaseLib2/Level0
+CFLAGS+= -I../../BaseLib2/Level1
+CFLAGS+= -I../../BaseLib2/Level2
+CFLAGS+= -I../../BaseLib2/Level3
+CFLAGS+= -I../../BaseLib2/Level4
+CFLAGS+= -I../../BaseLib2/Level5
+CFLAGS+= -I../../BaseLib2/Level6
+CFLAGS+= -I../../Interfaces/ConfigurationLibrary
+
+all: $(OBJS) \
+	$(TARGET)/MathGAM$(GAMEXT)
+
+#include depends.$(TARGET)
+
+include $(MAKEDEFAULTDIR)/MakeStdLibRules.$(TARGET)
 
