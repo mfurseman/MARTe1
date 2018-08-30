@@ -51,7 +51,6 @@
 #ifndef SDNSOCKET_H
 #define	SDNSOCKET_H
 
-#include <sdn.h>
 //#include <tcn.h>
 #ifdef _MARTE
 #include "Object.h"

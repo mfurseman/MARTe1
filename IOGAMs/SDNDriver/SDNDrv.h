@@ -31,6 +31,7 @@
 #if !defined (_SDN_DRV)
 #define _SDN_DRV
 
+#include "sdn-header.h"
 #include "sdn-publisher.h"
 #include "sdn-subscriber.h"
 #include "System.h"
@@ -219,7 +220,7 @@ private:
     sdn::Subscriber *subscriber;
 
     /** SDN payload */
-    AnyType payload;
+    sdn::base::AnyType payload;
 
     /** Ethernet interface name*/
     FString interfaceName;

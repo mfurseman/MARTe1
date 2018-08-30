@@ -366,7 +366,7 @@ int32 SDNDrv::GetData(uint32 usecTime, int32 *buffer, int32 bufferNumber) {
     // Check data age
     uint32 sampleNo = header->topic_counter;
     if(freshPacket) {
-        if(abs(usecTime-header->send_time / 1000) > maxDataAgeUsec) {
+        if(usecTime-header->send_time / 1000 > maxDataAgeUsec) {
             // Packet too old
             // return the last received data and put 0xFFFFFFFF as nSampleNumber
             sampleNo = 0xFFFFFFFF;
@@ -570,7 +570,7 @@ void SDNDrv::RecCallback(void* arg){
         if(producerUsecPeriod != -1) {
             int64 counter = HRT::HRTCounter();
             /// Allow for a 10% deviation from the specified producer usec period
-            if(abs((uint32)((counter-lastCounter)*HRT::HRTPeriod()*1000000)-(uint32)((header->topic_counter-originalNSampleNumber)*producerUsecPeriod)) > 0.1*producerUsecPeriod) {
+            if((uint32)((counter-lastCounter)*HRT::HRTPeriod()*1000000)-(uint32)((header->topic_counter-originalNSampleNumber)*producerUsecPeriod) > 0.1*producerUsecPeriod) {
                 deviationErrorCounter++;
             }
             originalNSampleNumber = header->topic_counter;

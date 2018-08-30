@@ -47,7 +47,7 @@ esac
 
 echo "Target is $TARGET"
 
-SDNDIR=../../../../SDN/v1.x
+SDNDIR=../../../sdn/v1.2_nonCCS
 
 CODE_DIRECTORY=../..
 LD_LIBRARY_PATH=.:$CODE_DIRECTORY/BaseLib2/${TARGET}/

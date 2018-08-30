@@ -25,7 +25,8 @@
 OBJSX=
 
 MAKEDEFAULTDIR=../../MakeDefaults
-SDNDIR=../../../../SDN/v1.x
+SDNDIR=../../../sdn/v1.2_nonCCS
+
 
 include $(MAKEDEFAULTDIR)/MakeStdLibDefs.$(TARGET)
 
@@ -42,11 +43,11 @@ CFLAGS+= -I../../BaseLib2/Level5
 CFLAGS+= -I../../BaseLib2/Level6
 CFLAGS+= -I../../BaseLib2/LoggerService
 CFLAGS+= -I$(SDNDIR)/src/main/c++/include/
+CFLAGS+= -I$(SDNDIR)/src/main/c++/include/common
 
 all: $(OBJS) \
-	$(TARGET)/SDNDrv$(GAMEXT) \
-	$(TARGET)/test.ex
-	echo  $(OBJS)
+	$(TARGET)/SDNDrv$(GAMEXT)
+	echo $(OBJS)
 
 #include depends.$(TARGET)
 

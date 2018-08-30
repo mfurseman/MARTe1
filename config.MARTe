@@ -42,6 +42,7 @@ FileReaderDriver
 GenericTimerDriver
 LinuxATMDriver
 LinuxTimer
+SDNDriver
 SharedMemoryDriver
 SimulationTimerDriver
 SrTrATCADriver

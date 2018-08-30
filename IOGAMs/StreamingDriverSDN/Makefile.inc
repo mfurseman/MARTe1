@@ -25,6 +25,7 @@
 OBJSX=
 
 MAKEDEFAULTDIR=../../MakeDefaults
+SDNDIR=../../../sdn/v1.2_nonCCS
 
 include $(MAKEDEFAULTDIR)/MakeStdLibDefs.$(TARGET)
 
@@ -38,7 +39,8 @@ CFLAGS+= -I../../BaseLib2/Level4
 CFLAGS+= -I../../BaseLib2/Level5
 CFLAGS+= -I../../BaseLib2/Level6
 CFLAGS+= -I../../MARTe/MARTeSupportLib
-CFLAGS+= -I$(CODAC_ROOT)/include
+CFLAGS+= -I$(SDNDIR)/src/main/c++/include
+CFLAGS+= -I$(SDNDIR)/src/main/c++/include/common
 CFLAGS+= -D_MARTE
 
 all:  $(OBJS) $(TARGET)/StreamingDriverSDN$(GAMEXT) \
