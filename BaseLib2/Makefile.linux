@@ -38,3 +38,5 @@ LIBRARIES   += ./Level6/$(TARGET)/BaseLib6S$(LIBEXT)
 LIBRARIES   += ./LoggerService/$(TARGET)/LoggerService$(LIBEXT)
 
 LIBRARIES += -lm
+LIBRARIES += -lpthread
+LIBRARIES += -ldl

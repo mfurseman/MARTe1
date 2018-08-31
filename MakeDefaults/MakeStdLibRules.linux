@@ -55,8 +55,7 @@ linux/%.a : $(OBJS)
 	ld -r $(OBJS) -o $@
 
 linux/%.so : linux/%.o $(OBJS)
-#	$(COMPILER) -shared -fPIC $(OBJS) $(LIBRARIES) linux/$*.o -o $@
-	$(COMPILER) -shared -fPIC $(OBJS) linux/$*.o $(LIBRARIES) -o $@
+	$(COMPILER) -Wl,--no-undefined -shared -fPIC $(OBJS) linux/$*.o $(LIBRARIES) -o $@
 	touch linux/lib$*.so
 	rm  linux/lib$*.so
 	ln -fns $*.so linux/lib$*.so
@@ -89,10 +88,10 @@ dependsRaw.linux:
 	@mkdir -p linux
 
 linux/%.gam : linux/%.o $(OBJS)
-	$(COMPILER) -shared -fPIC $(OBJS) $(LIBRARIES) linux/$*.o -o $@
+	$(COMPILER) -Wl,--no-undefined -shared -fPIC $(OBJS) linux/$*.o $(LIBRARIES) -o $@
 
 linux/%.drv : linux/%.o $(OBJS)
-	$(COMPILER) -shared -fPIC $(OBJS) $(LIBRARIES) linux/$*.o -o $@
+	$(COMPILER) -Wl,--no-undefined -shared -fPIC $(OBJS) linux/$*.o $(LIBRARIES) -o $@
 
 %.spb : 
 	$(MAKE) -C $* -f Makefile.$(TARGET)
